@@ -9,9 +9,7 @@ const Banner = () => {
 
   const handleScroll = () => {
     const scrollY = window.scrollY;
-    // You can adjust the threshold value as needed
     const threshold = 100;
-
     setIsFixed(scrollY > threshold);
   };
 
@@ -44,7 +42,7 @@ const Banner = () => {
             </div>
 
             <div className="flex flex-col gap-4 justify-center mb-4">
-              <h1 className="text-white text-2xl md:text-5xl md:ml-0 mx-auto  hidden md:block">
+              <h1 className="text-white text-2xl md:text-5xl md:ml-0 mx-auto hidden md:block">
                 Discover <br /> Tranquility at
                 <span className="text-primary-500 "> Hotel Haven</span>
               </h1>
@@ -58,7 +56,9 @@ const Banner = () => {
 
       <div
         className={`md:-mt-10 ${
-          isFixed ? "fixed top-0 left-0 right-0 bg-white z-50 md:-mt-0" : ""
+          isFixed
+            ? "fixed top-0 left-0 right-0 bg-white z-50 md:-mt-0 transition-all duration-500 ease-in-out"
+            : ""
         }`}
       >
         <FindRoomForm />

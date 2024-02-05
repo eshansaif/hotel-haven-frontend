@@ -12,12 +12,22 @@ const Home = () => {
     <Main>
       <SetTitle title="Welcome To Our Home" />
       <Banner />
-      <div className="md:mx-16">
-        <TopLocation />
-        <BestHotel />
-        <HotelGallery />
-        <BestBlogs />
-        {/* <CustomerReviews /> */}
+      <div>
+        <div className="md:mx-16">
+          <TopLocation />
+        </div>
+        <div className="md:mx-16">
+          <BestHotel />
+        </div>
+        <div className="md:mx-16">
+          <HotelGallery />
+        </div>
+        <div className="md:mx-16">
+          <BestBlogs />
+        </div>
+        <div>
+          <CustomerReviews />
+        </div>
       </div>
     </Main>
   );
