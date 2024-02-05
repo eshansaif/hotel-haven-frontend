@@ -1,9 +1,9 @@
-import {Link} from "react-router-dom";
-import {AiOutlineLike, AiTwotoneLike} from "react-icons/ai";
-import {BsBookmarkStar, BsBookmarkStarFill} from "react-icons/bs";
-import {BlogType} from "../../../../types";
+import { Link } from "react-router-dom";
+import { AiOutlineLike, AiTwotoneLike } from "react-icons/ai";
+import { BsBookmarkStar, BsBookmarkStarFill } from "react-icons/bs";
+import { BlogType } from "../../../../types";
 import formatPostDate from "../../../../utils/format-post-date";
-import {useBlogCard} from "../../../../hooks";
+import { useBlogCard } from "../../../../hooks";
 
 interface BlogCardProps {
   blog: BlogType.Blog;
@@ -39,7 +39,7 @@ const BlogCard: React.FC<BlogCardProps> = (props) => {
 
   return (
     <>
-      <div className="bg-white border border-secondary-200 rounded-lg shadow dark:bg-secondary-800 dark:border-secondary-800">
+      <div className="bg-white border border-secondary-200 rounded-lg shadow dark:bg-secondary-800 dark:border-secondary-800 flex-co">
         <img
           className="rounded-t-lg w-full h-56 md:h-72 object-cover"
           src={thumbnail}
@@ -49,7 +49,8 @@ const BlogCard: React.FC<BlogCardProps> = (props) => {
           <div className="flex items-center justify-between gap-4">
             <Link
               to={`/blogs/${_id}`}
-              className="mb-2 text-2xl font-bold text-secondary-900 dark:text-white hover:underline">
+              className="mb-2 text-2xl font-bold text-secondary-900 dark:text-white hover:underline"
+            >
               {title}
             </Link>
             {bookmark?.some((item: any) => item.blogId === _id) ? (
@@ -70,7 +71,8 @@ const BlogCard: React.FC<BlogCardProps> = (props) => {
               {description.slice(0, 90)}{" "}
               <Link
                 to={`/blogs/${_id}`}
-                className="font-semibold text-secondary-500 dark:text-white hover:underline">
+                className="font-semibold text-secondary-500 dark:text-white hover:underline"
+              >
                 read more
               </Link>
             </p>
@@ -78,10 +80,11 @@ const BlogCard: React.FC<BlogCardProps> = (props) => {
             <p className="mb-3 break-words">{description}</p>
           )}
 
-          <div className="py-2 flex justify-between items-center">
+          <div className="py-2 flex justify-between items-center mt-auto">
             <Link
               to={`/profile/${userId}`}
-              className="group flex gap-2 justify-center items-center">
+              className="group flex gap-2 justify-center items-center"
+            >
               <img
                 className="rounded-full w-9 h-9 group-hover:outline outline-1 outline-primary-100"
                 src={userProfile}

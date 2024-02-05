@@ -10,13 +10,15 @@ import SetTitle from "../../components/set-title";
 const Home = () => {
   return (
     <Main>
-      <SetTitle title="Welcome Our Home" />
+      <SetTitle title="Welcome To Our Home" />
       <Banner />
-      <BestHotel />
-      <HotelGallery />
-      <TopLocation />
-      <CustomerReviews />
-      <BestBlogs />
+      <div className="md:mx-16">
+        <TopLocation />
+        <BestHotel />
+        <HotelGallery />
+        <BestBlogs />
+        {/* <CustomerReviews /> */}
+      </div>
     </Main>
   );
 };

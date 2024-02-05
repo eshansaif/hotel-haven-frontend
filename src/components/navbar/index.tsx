@@ -1,9 +1,9 @@
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import Button from "../ui/button";
-import {useState} from "react";
-import {logout} from "../../redux/authSlice";
-import {useAppDispatch, useAppSelector} from "../../redux/hooks";
-import {useLocation} from "react-router-dom";
+import { useState } from "react";
+import { logout } from "../../redux/authSlice";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const user = useAppSelector((state) => state.auth.user);
@@ -22,7 +22,7 @@ const Navbar = () => {
   const profileMenuStyle = `block px-4 py-2 text-sm text-secondary-700 hover:bg-secondary-100 dark:hover:bg-secondary-600 dark:text-secondary-200 dark:hover:text-white`;
 
   return (
-    <nav className="bg-white shadow-md border-secondary-200 dark:bg-secondary-700">
+    <nav className="bg-transparent shadow-md border-secondary-200 dark:bg-secondary-700">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-4 py-2">
         <Link to="/" className="flex items-center">
           <img
@@ -31,7 +31,7 @@ const Navbar = () => {
             alt="Hotel Haven Logo"
           />
           <span className="self-center text-xl md:text-2xl font-semibold whitespace-nowrap dark:text-white">
-            HotelHaven
+            {/* HotelHaven */}
           </span>
         </Link>
         <div className="flex items-center md:order-2 relative">
@@ -43,7 +43,8 @@ const Navbar = () => {
               id="user-menu-button"
               aria-expanded="false"
               data-dropdown-toggle="user-dropdown"
-              data-dropdown-placement="bottom">
+              data-dropdown-placement="bottom"
+            >
               <span className="sr-only">Open user menu</span>
               <img
                 className="w-8 h-8 rounded-full"
@@ -52,16 +53,22 @@ const Navbar = () => {
               />
             </button>
           ) : (
-            <Link to="/signin">
-              <Button>Sign In</Button>
-            </Link>
+            <div className="flex gap-2">
+              <Link to="/signin">
+                <Button>Sign In</Button>
+              </Link>
+              <Link to="/signup">
+                <Button>Sign Up</Button>
+              </Link>
+            </div>
           )}
           {/*  Dropdown menu */}
           <div
             className={`${
               toggleProfile || "hidden"
             } absolute top-full right-0  z-50 my-4 text-base list-none bg-white divide-y divide-secondary-100 rounded-lg shadow dark:bg-secondary-700 dark:divide-secondary-600`}
-            id="user-dropdown">
+            id="user-dropdown"
+          >
             <div className="px-4 py-3">
               <span className="block text-sm text-secondary-900 dark:text-white">
                 {user?.name}
@@ -87,7 +94,8 @@ const Navbar = () => {
                     dispatch(logout());
                     setToggleProfile(false);
                   }}
-                  className={profileMenuStyle + " cursor-pointer"}>
+                  className={profileMenuStyle + " cursor-pointer"}
+                >
                   Sign out
                 </a>
               </li>
@@ -99,14 +107,16 @@ const Navbar = () => {
             type="button"
             className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-secondary-500 rounded-lg md:hidden hover:bg-secondary-100 focus:outline-none focus:ring-2 focus:ring-secondary-200 dark:text-secondary-400 dark:hover:bg-secondary-700 dark:focus:ring-secondary-600"
             aria-controls="navbar-user"
-            aria-expanded="false">
+            aria-expanded="false"
+          >
             <span className="sr-only">Open main menu</span>
             <svg
               className="w-5 h-5"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
-              viewBox="0 0 17 14">
+              viewBox="0 0 17 14"
+            >
               <path
                 stroke="currentColor"
                 strokeLinecap="round"
@@ -121,14 +131,16 @@ const Navbar = () => {
           className={`${
             toggleMenu || "hidden"
           } items-center justify-between w-full md:flex md:w-auto md:order-1`}
-          id="navbar-user">
+          id="navbar-user"
+        >
           <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-secondary-100 rounded-lg bg-secondary-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-secondary-800 md:dark:bg-secondary-700 dark:border-secondary-800">
             <li>
               <Link
                 to="/"
                 className={
                   location.pathname === "/" ? navItemStyleActive : navItemStyle
-                }>
+                }
+              >
                 Home
               </Link>
             </li>
@@ -139,7 +151,8 @@ const Navbar = () => {
                   location.pathname === "/hotel"
                     ? navItemStyleActive
                     : navItemStyle
-                }>
+                }
+              >
                 Hotel
               </Link>
             </li>
@@ -150,7 +163,8 @@ const Navbar = () => {
                   location.pathname === "/blogs"
                     ? navItemStyleActive
                     : navItemStyle
-                }>
+                }
+              >
                 Blog
               </Link>
             </li>
@@ -161,7 +175,8 @@ const Navbar = () => {
                   location.pathname === "/about"
                     ? navItemStyleActive
                     : navItemStyle
-                }>
+                }
+              >
                 About Us
               </Link>
             </li>
@@ -172,7 +187,8 @@ const Navbar = () => {
                   location.pathname === "/contact-us"
                     ? navItemStyleActive
                     : navItemStyle
-                }>
+                }
+              >
                 Contact Us
               </Link>
             </li>
